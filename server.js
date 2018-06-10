@@ -92,19 +92,22 @@ app.post("/api/exercise/add", (req, res) => {
 
 app.get("/api/exercise/log", (req, res) => {
   let user = req.query.getuserid;
-  let limit = req.query.
-  console.log(user);
+  let limit = req.query.limit;
+  console.log(user, limit);
   
-  userInfo.findOne({"userid": user}, (err, user) => {
+  if(!isNaN(limit)) {
+    userInfo.findOne({"userid": user}, (err, user) => {
     if(err) {
       console.log(err);
       return res.send('error: searching existing users');
     }
+    let exerciseLog = user.exercise.filter((value, index) => {
+      if(index < limit) return value  
+    })
+  
     res.json(user)  
-   
- });
+  })
 })
-
 
 // Not found middleware
 app.use((req, res, next) => {
