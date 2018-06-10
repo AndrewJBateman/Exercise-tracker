@@ -64,7 +64,7 @@ app.post("/api/exercise/new-user", (req,res) => {
       res.json({"username": newUsername,
       "userid": userid})
     }); //end of newUser save
-    console.log(newUser)
+    console.log('new user' +newUser)
   }); //end of findOne function 
 }); //end of app.post for new user
 

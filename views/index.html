@@ -30,10 +30,10 @@
           <p class="bold">Check database</p>
       
           <form action="/api/exercise/log" method="get">   
-            <p><code>GET /api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]</code></p>
+            <p><code>GET /api/exercise/log</code></p>
             <input name="getuserid" type="text" maxlength="9" placeholder="user id">
-            <!-<input name="datefrom" type="text" maxlength="100" placeholder="description" aria-labelledby="description">
-            <input name="dateto" type="text" maxlength="8" placeholder="date (DD-MM-YYYY)" aria-labelledby="date">-->
+            <input name="datefrom" type="text" maxlength="100" placeholder="from (yyyy-mm-dd)">
+            <input name="dateto" type="text" maxlength="8" placeholder="to (yyyy-mm-dd)">
             <button id="submit-log" type="submit">Submit Request</button>
           </form>
         
