@@ -97,17 +97,17 @@ app.get("/api/exercise/log", (req, res) => {
   
   if(!isNaN(limit)) {
     userInfo.findOne({"userid": user}, (err, user) => {
-    if(err) {
-      console.log(err);
-      return res.send('error: searching existing users');
-    }
-    let exerciseLog = user.exercise.filter((value, index) => {
+      if(err) {
+        console.log(err);
+        return res.send('error: searching existing users');
+      }
+      let exerciseLog = user.exercise.filter((value, index) => {
       if(index < limit) return value  
-    })
-  
-    res.json(user)  
-  })
-})
+      })
+      return res.json(exerciseLog)  
+    }) //end findOne
+  } //end if
+}) //end of app.get
 
 // Not found middleware
 app.use((req, res, next) => {
