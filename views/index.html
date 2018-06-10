@@ -26,9 +26,21 @@
             <input id="dat" type="text" name="date" placeholder="date (yyyy-mm-dd)">
             <input type="submit" value="Submit">
           </form>
+        
+          <p class="bold">Check database</p>
+      
+          <form action="/api/exercise/log" method="get">   
+            <p><code>GET /api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]</code></p>
+            <input name="getuserid" type="text" maxlength="9" placeholder="user id">
+            <!-<input name="datefrom" type="text" maxlength="100" placeholder="description" aria-labelledby="description">
+            <input name="dateto" type="text" maxlength="8" placeholder="date (DD-MM-YYYY)" aria-labelledby="date">-->
+            <button id="submit-log" type="submit">Submit Request</button>
+          </form>
+        
+          <!--
           <p><strong>GET users's exercise log: </strong><code>GET /api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]</code></p>
           <p><strong>{ }</strong> = required, <strong>[ ]</strong> = optional</p>
-          <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>
+          <p><strong>from, to</strong> = dates (yyyy-mm-dd); <strong>limit</strong> = number</p>-->
       </div>
    </body>
 
