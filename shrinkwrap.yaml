@@ -1,7 +1,10 @@
 dependencies:
+  bluebird: 3.5.1
   body-parser: 1.18.3
   cors: 2.8.4
+  dotenv: 6.0.0
   express: 4.16.3
+  moment: 2.22.2
   mongodb: 2.2.35
   mongoose: 4.13.14
   shortid: 2.2.8
@@ -29,6 +32,10 @@ packages:
     dev: false
     resolution:
       integrity: sha1-eRQg1/VR7qKJdFOop3ZT+WYG1nw=
+  /bluebird/3.5.1:
+    dev: false
+    resolution:
+      integrity: sha512-MKiLiV+I1AA596t9w1sQJ8jkiSr5+ZKi0WKrYGUn6d1Fx+Ij4tIj+m2WMQSGczs5jZVxV339chE8iwk6F64wjA==
   /body-parser/1.18.2:
     dependencies:
       bytes: 3.0.0
@@ -136,6 +143,12 @@ packages:
     dev: false
     resolution:
       integrity: sha1-l4hXRCxEdJ5CBmE+N5RiBYJqvYA=
+  /dotenv/6.0.0:
+    dev: false
+    engines:
+      node: '>=6'
+    resolution:
+      integrity: sha512-FlWbnhgjtwD+uNLUGHbMykMOYQaTivdHEmYwAKFjn6GKe/CqY0fNae93ZHTd20snh9ZLr8mTzIL9m0APQ1pjQg==
   /ee-first/1.1.1:
     dev: false
     resolution:
@@ -325,6 +338,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-KI1+qOZu5DcW6wayYHSzR/tXKCDC5Om4s1z2QJjDULzLcmf3DvzS7oluY4HCTrc+9FiKmWUgeNLg7W3uIQvxtQ==
+  /moment/2.22.2:
+    dev: false
+    resolution:
+      integrity: sha1-PCV/mDn8DpP/UxSWMiOeuQeD/2Y=
   /mongodb-core/2.1.18:
     dependencies:
       bson: 1.0.9
@@ -636,9 +653,12 @@ registry: 'https://registry.npmjs.org/'
 shrinkwrapMinorVersion: 7
 shrinkwrapVersion: 3
 specifiers:
+  bluebird: '*'
   body-parser: ^1.15.2
   cors: ^2.8.1
+  dotenv: '*'
   express: ^4.14.0
+  moment: '*'
   mongodb: ^2.2.14
   mongoose: ^4.7.2
   shortid: ^2.2.6
