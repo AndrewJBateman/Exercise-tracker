@@ -92,6 +92,7 @@ app.post("/api/exercise/add", (req, res) => {
 
 app.get("/api/exercise/log", (req, res) => {
   let user = req.query.getuserid;
+  let limit = req.query.
   console.log(user);
   
   userInfo.findOne({"userid": user}, (err, user) => {
