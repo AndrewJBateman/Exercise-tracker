@@ -93,9 +93,9 @@ app.post("/api/exercise/add", (req, res) => {
 app.get("/api/exercise/log", (req, res) => {
   let user = req.query.getuserid;
   let limit = req.query.limit;
-  console.log(user, limit);
   
   if(!isNaN(limit)) {
+    console.log(limit)
     userInfo.findOne({"userid": user}, (err, user) => {
       if(err) {
         console.log(err);
