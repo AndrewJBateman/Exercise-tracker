@@ -38,11 +38,11 @@
             <p><code>GET /api/exercise/log</code></p>
             <input name="getuserid" type="text" maxlength="9" placeholder="user id*">
             <label for="datefrom">Enter log start date**</label>
-            <input id="datefrom" name="datefrom" type="date" maxlength="100" placeholder="from (yyyy-mm-dd)">
+            <input id="datefrom" name="datefrom" type="date" min="2018-01-01">
             <label for="dateto">Enter log end date**</label>
-            <input id="dateto" name="dateto" type="date" maxlength="8" placeholder="to (yyyy-mm-dd)">
+            <input id="dateto" name="dateto" type="date" min="2018-01-02" max="today">
             <label for="limit">Enter max. log size**</label>
-            <input id="limit" name="limit" type="Number" maxlength="2" placeholder="limit">
+            <input id="limit" name="limit" type="Number" min="1" max="50">
             <button id="submit-log" type="submit">Submit Log Request</button>
             <p><strong>* = required</strong></p>
             <p><strong>** = optional, if blank returns entire log</strong></p>

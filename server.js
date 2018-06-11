@@ -99,14 +99,16 @@ app.get("/api/exercise/log", (req, res) => {
   let to = req.params.dateto;
   
   if(!isNaN(limit)) {
-    console.log(limit)
     userInfo.findOne({"userid": user}, (err, user) => {
       if(err) {
         console.log(err);
         return res.send('error: searching existing users');
       }
       let exerciseLog = user.exercise.filter((value, index) => {
-      if(index < limit) return value  
+      if(limit <1){
+        return res.send('limit needs to be at least 1')
+      }
+      else if(index < limit) return value  
       })
       return res.json(exerciseLog)  
     }) //end findOne
