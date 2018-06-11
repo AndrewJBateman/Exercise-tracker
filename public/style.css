@@ -10,7 +10,9 @@ body {
   background-color: #f5f5f5;
 }
 .add_create{
-  vertical-align: top;
+  position: relative;
+  top: 50%;
+  
 }
 
 h1 {
