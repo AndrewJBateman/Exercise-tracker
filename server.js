@@ -93,8 +93,9 @@ app.post("/api/exercise/add", (req, res) => {
 app.get("/api/exercise/log", (req, res) => {
   let user = req.query.getuserid;
   let limit = req.query.limit;
-  var from = moment(req.query.datefrom);
-  var to = moment(req.query.dateto);
+  var from = req.query.datefrom;
+  var to = req.query.dateto;
+  console.log(user)
   console.log(from)
   console.log(to)
   //console.log(to)
@@ -118,8 +119,7 @@ app.get("/api/exercise/log", (req, res) => {
         console.log(err);
         return res.send('error: searching existing users');
       }
-      let dateLog = user.exercise.find(
-        value => {
+      let dateLog = user.exercise.filter(value => {
         if(from <= value.date.getTime() &&
           value.date.getTime() <= to 
         ) return value
