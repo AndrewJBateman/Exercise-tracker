@@ -111,8 +111,12 @@ app.get("/api/exercise/log", (req, res) => {
   } //end if
   
   else if (from !== "" && to !== ""){
-    userInfo.findOne({"userid
-  }
+    userInfo.findOne({"userid": user}, (err, user) => {
+      let log = user.exercise.filter(value => {
+        
+      })
+    }); //end of findOne
+  } //end of else if
 }) //end of app.get
 
 // Not found middleware
