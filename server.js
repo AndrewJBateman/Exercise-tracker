@@ -105,10 +105,7 @@ app.get("/api/exercise/log", (req, res) => {
         return res.send('error: searching existing users');
       }
       let exerciseLog = user.exercise.filter((value, index) => {
-      if(limit <1){
-        return res.send('limit needs to be at least 1')
-      }
-      else if(index < limit) return value  
+      if(index < limit) return value  
       })
       return res.json(exerciseLog)  
     }) //end findOne
@@ -120,13 +117,12 @@ app.get("/api/exercise/log", (req, res) => {
         console.log(err);
         return res.send('error: searching existing users');
       }
-      let log = user.exercise.filter(value => {
+      let exerciseLog = user.exercise.filter(value => {
         if(from.isBefore(value.date) &&
-           (to.isAfter(value.date) &&
-           (from.isBefore(to)
+           to.isAfter(value.date) 
         ) return value
       }) //end of let log
-      return res.json(log)
+      return res.json(exerciseLog)
     }); //end of findOne
   } //end of else if
   else {
