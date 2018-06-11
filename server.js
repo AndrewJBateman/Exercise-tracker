@@ -94,9 +94,9 @@ app.get("/api/exercise/log", (req, res) => {
   let user = req.query.getuserid;
   let limit = req.query.limit;
   let from = req.params.datefrom;
-  console.log(moment.from)
-  console.log(moment.to)
   let to = req.params.dateto;
+  console.log(from)
+  console.log(to)
   
   if(!isNaN(limit)) {
     userInfo.findOne({"userid": user}, (err, user) => {
@@ -121,14 +121,17 @@ app.get("/api/exercise/log", (req, res) => {
         return res.send('error: searching existing users');
       }
       let log = user.exercise.filter(value => {
-        if(moment(from).isBefore(value.date) &&
-           moment(to).isAfter(value.date) &&
-           moment(from).isBefore(to)
+        if(from.isBefore(value.date) &&
+           (to).isAfter(value.date) &&
+           (from).isBefore(to)
         ) return value
       }) //end of let log
       return res.json(log)
     }); //end of findOne
   } //end of else if
+  else {
+    
+  }
 }) //end of app.get
 
 // Not found middleware
