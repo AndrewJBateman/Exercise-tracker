@@ -120,8 +120,8 @@ app.get("/api/exercise/log", (req, res) => {
         return res.send('error: searching existing users');
       }
       let dateLog = user.exercise.filter(value => {
-        if(from <= value.date.getTime() &&
-          value.date.getTime() <= to 
+        if(from <= value.date &&
+          value.date <= to 
         ) return value
       }) //end of let log
       return res.json(dateLog)
