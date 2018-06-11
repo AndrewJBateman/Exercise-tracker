@@ -20,22 +20,24 @@
           <form action="/api/exercise/add" method="post">
             <h3>Add exercises</h3>
             <p><code>POST /api/exercise/add</code></p>
-            <input id="uid" type="text" name="userId" minlength="4" maxlength="20" placeholder="userId*" required>
+            <input id="uid" type="text" name="userId" minlength="4" maxlength="20" placeholder="user id*" required>
             <input id="desc" type="text" name="description" maxlength="50" placeholder="description*" required>
             <input id="dur" type="text" name="duration" maxlength="9" placeholder="duration* (mins.)" required>
-            <input id="dat" type="text" name="date" placeholder="date (yyyy-mm-dd)">
-            <input type="submit" value="Submit">
+            <input id="dat" type="date" name="date" placeholder="">
+            <button id="submit-exercise" type="submit">Submit</button>
+            <p><strong>* = required</strong></p>
           </form>
         
           <p class="bold">Check database</p>
       
           <form action="/api/exercise/log" method="get">   
             <p><code>GET /api/exercise/log</code></p>
-            <input name="getuserid" type="text" maxlength="9" placeholder="user id">
-            <input name="datefrom" type="text" maxlength="100" placeholder="from (yyyy-mm-dd)">
-            <input name="dateto" type="text" maxlength="8" placeholder="to (yyyy-mm-dd)">
+            <input name="getuserid" type="text" maxlength="9" placeholder="user id*">
+            <input name="datefrom" type="date" maxlength="100" placeholder="from (yyyy-mm-dd)">
+            <input name="dateto" type="date" maxlength="8" placeholder="to (yyyy-mm-dd)">
             <input name="limit" type="Number" maxlength="2" placeholder="limit">
             <button id="submit-log" type="submit">Submit Request</button>
+            <p><strong>* = required</strong></p>
           </form>
         
           <!--
