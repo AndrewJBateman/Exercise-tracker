@@ -118,11 +118,10 @@ app.get("/api/exercise/log", (req, res) => {
         console.log(err);
         return res.send('error: searching existing users');
       }
-      let dateLog = user.exercise.find({
-        //value => {
-        //if(moment(datefrom).isBefore(value.date) &&
-          // moment(dateto).isAfter(value.date) 
-    
+      let dateLog = user.exercise.find(
+        value => {
+        if(moment(datefrom).isBefore(value.date) &&
+          moment(dateto).isAfter(value.date) 
         ) return value
       }) //end of let log
       return res.json(dateLog)
