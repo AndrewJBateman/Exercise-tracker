@@ -36,13 +36,15 @@
           <form action="/api/exercise/log" method="get">   
             <p><code>GET /api/exercise/log</code></p>
             <input name="getuserid" type="text" maxlength="9" placeholder="user id*">
-            <label for="datefrom">Enter log start date</label>
+            <label for="datefrom">Enter log start date**</label>
             <input id="datefrom" name="datefrom" type="date" maxlength="100" placeholder="from (yyyy-mm-dd)">
-            <label for="dateto">Enter log end date</label>
+            <label for="dateto">Enter log end date**</label>
             <input id="dateto" name="dateto" type="date" maxlength="8" placeholder="to (yyyy-mm-dd)">
-            <input name="limit" type="Number" maxlength="2" placeholder="limit">
+            <label for="limit">Enter max. log size**</label>
+            <input id="limit" name="limit" type="Number" maxlength="2" placeholder="limit">
             <button id="submit-log" type="submit">Submit Log Request</button>
             <p><strong>* = required</strong></p>
+            <p><strong>** = optional, if blank returns entire log</strong></p>
           </form>
         
           <!--
