@@ -93,6 +93,8 @@ app.post("/api/exercise/add", (req, res) => {
 app.get("/api/exercise/log", (req, res) => {
   let user = req.query.getuserid;
   let limit = req.query.limit;
+  let from = req.params.datefrom;
+  let to = req.params.dateto;
   
   if(!isNaN(limit)) {
     console.log(limit)
@@ -107,6 +109,10 @@ app.get("/api/exercise/log", (req, res) => {
       return res.json(exerciseLog)  
     }) //end findOne
   } //end if
+  
+  else if (from !== "" && to !== ""){
+    userInfo.findOne({"userid
+  }
 }) //end of app.get
 
 // Not found middleware

@@ -12,7 +12,7 @@ body {
 .add_create{
   position: relative;
   box-sizing: border-box;
-  vertical-align: bottom;
+  vertical-align: top;
 }
 
 h1 {
