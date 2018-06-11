@@ -15,16 +15,16 @@
             <h3>Create a New User</h3>
             <p><code>POST /api/exercise/new-user</code></p>
             <input id="uname" type="text" name="username" placeholder="username">
-            <input type="submit" value="Submit">
+            <button id="submit-user" type="submit">Submit User</button>
           </form>
           <form action="/api/exercise/add" method="post">
             <h3>Add exercises</h3>
             <p><code>POST /api/exercise/add</code></p>
             <input id="uid" type="text" name="userId" minlength="4" maxlength="20" placeholder="user id*" required>
             <input id="desc" type="text" name="description" maxlength="50" placeholder="description*" required>
-            <input id="dur" type="text" name="duration" maxlength="9" placeholder="duration* (mins.)" required>
-            <input id="dat" type="date" name="date" placeholder="">
-            <button id="submit-exercise" type="submit">Submit</button>
+            <input id="dur" type="text" name="duration" maxlength="9" placeholder="duration* (minutes)" required>
+            <input id="dat" type="date" name="date" value = "today" placeholder="add">
+            <button id="submit-exercise" type="submit">Submit Exercise</button>
             <p><strong>* = required</strong></p>
           </form>
         
