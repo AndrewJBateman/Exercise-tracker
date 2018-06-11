@@ -94,6 +94,8 @@ app.get("/api/exercise/log", (req, res) => {
   let user = req.query.getuserid;
   let limit = req.query.limit;
   let from = req.params.datefrom;
+  console.log(moment.from)
+  console.log(moment.to)
   let to = req.params.dateto;
   
   if(!isNaN(limit)) {
@@ -112,9 +114,17 @@ app.get("/api/exercise/log", (req, res) => {
   
   else if (from !== "" && to !== ""){
     userInfo.findOne({"userid": user}, (err, user) => {
+      if(err) {
+        console.log(err);
+        return res.send('error: searching existing users');
+      }
       let log = user.exercise.filter(value => {
-        
-      })
+        if(moment(from).isBefore(value.date) &&
+           moment(to).isAfter(value.date) &&
+           moment(from).isBefore(to)
+        ) return value
+      }) //end of let log
+      return res.json(log)
     }); //end of findOne
   } //end of else if
 }) //end of app.get
