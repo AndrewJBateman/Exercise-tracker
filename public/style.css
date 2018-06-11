@@ -11,8 +11,8 @@ body {
 }
 .add_create{
   position: relative;
-  top: 50%;
-  
+  box-sizing: border-box;
+  vertical-align: bottom;
 }
 
 h1 {
