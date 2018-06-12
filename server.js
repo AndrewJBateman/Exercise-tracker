@@ -89,12 +89,11 @@ app.post("/api/exercise/add", (req, res) => {
   }); //end of findOne
 }); //end of app.post
 
-
 app.get("/api/exercise/log", (req, res) => {
   let user = req.query.getuserid;
   let limit = req.query.limit;
-  var from = req.query.datefrom;
-  var to = req.query.dateto;
+  var from = req.query.from;
+  var to = req.query.to;
   console.log(user)
   console.log(from)
   console.log(to)
@@ -119,16 +118,13 @@ app.get("/api/exercise/log", (req, res) => {
         console.log(err);
         return res.send('error: searching existing users');
       }
-      console.log(userInfo.exercise.date)
       let dateLog = user.exercise.filter((value) => {
-        if(from.isBefore(value.date) &&
-          to.isAfter(value.date) 
+        if(from.isBefore(moment(value.date)) &&
+          to.isAfter(value.date 
         ) return value
       }) //end of let log
       return res.json(dateLog)
       console.log(dateLog)
-      //console.log(userInfo.exercise)
-      //return res.json(userInfo.exercise.date)
     }); //end of findOne
   } //end of else if
   else {
