@@ -119,12 +119,13 @@ app.get("/api/exercise/log", (req, res) => {
         console.log(err);
         return res.send('error: searching existing users');
       }
-      let dateLog = user.exercise.filter(value => {
-        if(from <= value.date &&
-          value.date <= to 
-        ) return value
-      }) //end of let log
-      return res.json(dateLog)
+      //let dateLog = user.exercise.filter(value => {
+        //if(from <= value.date &&
+          //value.date <= to 
+        //) return value
+      //}) //end of let log
+      //return res.json(dateLog)
+      return res.json(user.exercise)
     }); //end of findOne
   } //end of else if
   else {
