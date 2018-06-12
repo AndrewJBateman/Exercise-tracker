@@ -125,7 +125,8 @@ app.get("/api/exercise/log", (req, res) => {
         //) return value
       //}) //end of let log
       //return res.json(dateLog)
-      return res.json(user.exercise)
+      console.log(userInfo.exercise)
+      return res.json(userInfo.exercise.date)
     }); //end of findOne
   } //end of else if
   else {
