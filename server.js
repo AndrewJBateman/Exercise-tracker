@@ -113,13 +113,13 @@ app.get("/api/exercise/log", (req, res) => {
     }) //end findOne
   } //end if
   
-  else if (from !== undefined && to !== undefined){
+  else if(from.isValid && to.isValid){
     userInfo.findOne({"userid": user}, (err, user) => {
       if(err) {
         console.log(err);
         return res.send('error: searching existing users');
       }
-      //let dateLog = user.exercise.filter(value => {
+      let dateLog = user.exercise.filter((value) => {
         //if(from <= value.date &&
           //value.date <= to 
         //) return value
