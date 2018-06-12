@@ -89,48 +89,31 @@ app.post("/api/exercise/add", (req, res) => {
   }); //end of findOne
 }); //end of app.post
 
-app.get("/api/exercise/log", (req, res) => {
+app.get("/api/exercise/log/", (req, res) => {
   const { userid, limit, from, to } = req.query
-  
-  console.log(userid)
-  console.log(from)
-  console.log(to)
-  
-  if(!isNaN(limit)) {
-    userInfo.findOne({"userid": userid}, (err, user) => {
-      if(err) {
-        console.log(err);
-        return res.send('error: searching existing users');
-      }
-      let exerciseLog = user.exercise.filter((value, index) => {
-        if(index<limit) return value  
-      })
-      return res.json(exerciseLog) 
-    }) //end findOne
-  } //end if
-  
-  else if(from.isValid && to.isValid){
-    userInfo.findOne({"userid": userid}, (err, user) => {
-      if(err) {
-        console.log(err);
-        return res.send('error: searching existing users');
-      }
-      const dateLog = user.exercise
-      //let dateLog = user.exercise.where('date').gte(from).lte(to)
-      
-      return res.json(dateLog)
-      console.log(dateLog)
-    }); //end of findOne
-  } //end of else if
-  else {
-    userInfo.findOne({"userid": user}, (err, user) => {
-      if(err) {
-        console.log(err);
-        return res.send('error: searching existing users');
-      }
-      return res.json(user)  
-    }) //end findOne
+ 
+  let startDate=new Date(-8640000000000000)
+  let endDate=new Date(8640000000000000)
+  if (from) {
+    startDate=moment(from).toDate()
   }
+  if (to) {
+    endDate=moment(to).toDate()
+  }
+  if (mongoose.Types.ObjectId.isValid(userid)) {
+    const exerc = userInfo.exercise.find({"userid": userid })
+    .where('date').gte(startDate).lte(endDate)
+    .limit(Number(limit))
+    .exec(function(err, exercise) {
+      if (err) {
+        res.send('exercise not found')
+        throw err;
+      }
+      res.send(exercise)
+     })
+  } else{
+    res.send('user not found ')
+  } 
 }) //end of app.get
 
 // Not found middleware
