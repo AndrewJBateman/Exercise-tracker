@@ -89,8 +89,12 @@ app.post("/api/exercise/add", (req, res) => {
   }); //end of findOne
 }); //end of app.post
 
-app.get("/api/exercise/log/", (req, res) => {
+app.get("/api/exercise/log", (req, res) => {
   const { userid, limit, from, to } = req.query
+  console.log(userid)
+  console.log(limit)
+  console.log(from)
+  console.log(to)
  
   let startDate=new Date(-8640000000000000)
   let endDate=new Date(8640000000000000)
@@ -100,8 +104,8 @@ app.get("/api/exercise/log/", (req, res) => {
   if (to) {
     endDate=moment(to).toDate()
   }
-  if (mongoose.Types.ObjectId.isValid(userid)) {
-    const exerc = userInfo.exercise.find({"userid": userid })
+  //if (mongoose.Types.ObjectId.isValid(userid)) {
+    const exerc = userInfo.findOne({"userid": userid })
     .where('date').gte(startDate).lte(endDate)
     //.limit(Number(limit))
     .exec(function(err, exercise) {
@@ -111,9 +115,9 @@ app.get("/api/exercise/log/", (req, res) => {
       }
       res.send(exercise)
      })
-  } else{
-    res.send('user not found ')
-  } 
+  //} else{
+    //res.send('user not found ')
+  // 
 }) //end of app.get
 
 // Not found middleware
