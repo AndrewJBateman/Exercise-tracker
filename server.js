@@ -90,17 +90,14 @@ app.post("/api/exercise/add", (req, res) => {
 }); //end of app.post
 
 app.get("/api/exercise/log", (req, res) => {
-  let user = req.query.getuserid;
-  let limit = req.query.limit;
-  var from = req.query.from;
-  var to = req.query.to;
-  console.log(user)
+  const { userid, limit, from, to } = req.query
+  
+  console.log(userid)
   console.log(from)
   console.log(to)
-  //console.log(to)
   
   if(!isNaN(limit)) {
-    userInfo.findOne({"userid": user}, (err, user) => {
+    userInfo.findOne({"userid": userid}, (err, user) => {
       if(err) {
         console.log(err);
         return res.send('error: searching existing users');
@@ -113,12 +110,12 @@ app.get("/api/exercise/log", (req, res) => {
   } //end if
   
   else if(from.isValid && to.isValid){
-    userInfo.findOne({"userid": user}, (err, user) => {
+    userInfo.findOne({"userid": userid}, (err, user) => {
       if(err) {
         console.log(err);
         return res.send('error: searching existing users');
       }
-      let dateLog = user.exercise
+      const dateLog = user.exercise
       //let dateLog = user.exercise.where('date').gte(from).lte(to)
       
       return res.json(dateLog)
