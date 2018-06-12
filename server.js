@@ -106,9 +106,9 @@ app.get("/api/exercise/log", (req, res) => {
         return res.send('error: searching existing users');
       }
       let exerciseLog = user.exercise.filter((value, index) => {
-      if(index < limit) return value  
+        if(index<limit) return value  
       })
-      return res.json(exerciseLog)  
+      return res.json(exerciseLog) 
     }) //end findOne
   } //end if
   
