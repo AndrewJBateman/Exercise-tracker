@@ -118,7 +118,7 @@ app.get("/api/exercise/log", (req, res) => {
         console.log(err);
         return res.send('error: searching existing users');
       }
-      let dateLog = user.exercise.find({ date : {'$gt' : from} })
+      let dateLog = user.exercise.where('date').gte(from).lte(to)
       
       return res.json(dateLog)
       console.log(dateLog)
