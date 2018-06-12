@@ -118,11 +118,8 @@ app.get("/api/exercise/log", (req, res) => {
         console.log(err);
         return res.send('error: searching existing users');
       }
-      let dateLog = user.exercise.filter((value) => {
-        if(from.isBefore(value.date) &&
-          to.isAfter(value.date) 
-        ) return value
-      }) 
+      let dateLog = user.exercise.find({ date : {'$gt' : from} })
+      
       return res.json(dateLog)
       console.log(dateLog)
     }); //end of findOne
