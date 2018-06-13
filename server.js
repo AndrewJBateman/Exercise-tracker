@@ -86,13 +86,12 @@ app.post("/api/exercise/add", (req, res) => {
 app.get("/api/exercise/log", (req, res) => {
   const { userid, from, to } = req.query
   
-  const limit = 10
-  const limit = req.query.limit
+  const limit = req.query.limit || 10
+  //const limit = req.query.limit
     
-  console.log(userid)
-  console.log(limit)
-  console.log(from)
-  console.log(to)
+  console.log('userid = ' +userid, 'limit = ' +limit)
+  console.log('from date is ' +from)
+  console.log('to date is ' +to)
  
   if(!isNaN(limit)){
     userInfo.findOne({"userid": userid}, (err, user) => {
@@ -108,7 +107,7 @@ app.get("/api/exercise/log", (req, res) => {
       let dateLog = user.exercise.filter((value) => {
         if(moment(from).isBefore(value.date) &&
            moment(to).isAfter(value.date) 
-           //&& moment(from).isBefore(moment(to))
+           && moment(from).isBefore(moment(to))
         ) return value.slice(limit)
       })
       return res.json(dateLog)
