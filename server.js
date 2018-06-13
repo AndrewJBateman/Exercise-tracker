@@ -82,14 +82,14 @@ app.post("/api/exercise/add", (req, res) => {
     
     let newCount = Number(user.count) + Number(req.body.duration);
     user.Count = newCount;
-    user.save((err, user) => {{"userid": req.body.userid}, (err, user) => {
-      
-    }
+    user.save((err, user) => {    
       if (err) throw err; 
     });
     res.json(user);
   }); //end of findOne
 }); //end of app.post
+
+
 
 app.get("/api/exercise/log", (req, res) => {
   const { userid, limit, from, to } = req.query
@@ -99,9 +99,25 @@ app.get("/api/exercise/log", (req, res) => {
   console.log(to)
  
   if(!isNaN(limit)){
-    userInfo.findOne({
+    userInfo.findOne({"userid": req.body.userId}, (err, user) => {
+      if(err) throw err
+      let exerciseLog = user.exercise.filter((value, index) => {
+        if(index<limit) return value
+      })
+      return res.json(exerciseLog)
+    })
+  } else if(moment(from) && moment(to)){
+    userInfo.findOne({"userid": req.body.userId}, (err, user) => {
+      if(err) throw err
+      let dateLog = user.exercise.filter((value) => {
+        if(moment(from).isBefore(value.date) &&
+           moment(to).isAfter(value.date)
+      }
       
     })
+    
+  } else {
+    
   }
 
   //} else{
