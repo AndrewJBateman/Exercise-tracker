@@ -70,8 +70,8 @@ app.post("/api/exercise/new-user", (req,res) => {
 
 app.post("/api/exercise/add", (req, res) => {
   
-  //let user = req.body.userId
-  userInfo.findOne({"userid": req.body.userId}, (err, user) => {
+  let user = req.body.userId
+  userInfo.findOne({"userid": user}, (err, user) => {
     console.log(req.body.userId)
     if(err) throw err
     user.exercise.unshift({              
