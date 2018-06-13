@@ -42,16 +42,13 @@ app.post("/api/exercise/new-user", (req,res) => {
     username: req.body.username, 
     userid: userid,
     exercise: [], 
-    //count: 0
   })
   console.log('created new user ' +newUser)
     
   userInfo.findOne({"username": newUsername}, (err, user) => {
-    
     if(user === "" || undefined){
       res.json({error: "username required"})
     }
-    
     else if(err) {
       console.log(err);
       return res.send('error: searching existing users');
@@ -69,22 +66,16 @@ app.post("/api/exercise/new-user", (req,res) => {
 }); //end of app.post for new user
 
 app.post("/api/exercise/add", (req, res) => {
-  
   let user = req.body.userId
   userInfo.findOne({"userid": user}, (err, user) => {
-    console.log(req.body.userId)
+    console.log(user)
     if(err) throw err
-    user.exercise.unshift({              
+    user.exercise.unshift({ 
+      "exercise": "",
       "description": req.body.description,  
       "duration": req.body.duration,
       "date": req.body.date
     })
-    
-    //let newCount = Number(user.count) + Number(req.body.duration);
-    //user.Count = newCount;
-    //user.save((err, user) => {    
-      //if (err) throw err; 
-    //});
     res.json(user);
   }); //end of findOne
 }); //end of app.post
