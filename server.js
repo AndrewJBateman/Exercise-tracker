@@ -82,7 +82,9 @@ app.post("/api/exercise/add", (req, res) => {
     
     let newCount = Number(user.count) + Number(req.body.duration);
     user.Count = newCount;
-    user.save((err, user) => {
+    user.save((err, user) => {{"userid": req.body.userid}, (err, user) => {
+      
+    }
       if (err) throw err; 
     });
     res.json(user);
@@ -96,28 +98,12 @@ app.get("/api/exercise/log", (req, res) => {
   console.log(from)
   console.log(to)
  
-  let startDate=new Date(-8640000000000000)
-  let endDate=new Date(8640000000000000)
-  if (from) {
-    startDate=moment(from).toDate()
+  if(!isNaN(limit)){
+    userInfo.findOne({
+      
+    })
   }
-  console.log(startDate)
-  if (to) {
-    endDate=moment(to).toDate()
-  }
-  console.log(endDate)
-  //if (mongoose.Types.ObjectId.isValid(userid)) {
-    //let exerciseDate = userInfo.exercise;
-    const exerc = userInfo.find({"userid": userid })
-    .where('date').gte(moment(from)).lte(moment(to))
-    .limit(Number(limit))
-    .exec(function(err, exercise) {
-      if (err) {
-        res.send('exercise not found')
-        throw err;
-      }
-      res.send(exercise)
-     })
+
   //} else{
     //res.send('user not found ')
   // 
