@@ -103,9 +103,9 @@ app.get("/api/exercise/log", (req, res) => {
       if(err) throw err
       let dateLog = user.exercise.filter((value) => {
         if(moment(from).isBefore(value.date) &&
-           moment(to).isAfter(value.date)
-           //moment(from).isBefore(moment(to))
-        ) return value.slice(limit)
+           moment(to).isAfter(value.date) 
+           //&& moment(from).isBefore(moment(to))
+        ) return value.slice(limit = undefined? 5 : limit)
       })
       return res.json(dateLog)
     })
