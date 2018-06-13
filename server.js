@@ -99,7 +99,7 @@ app.get("/api/exercise/log", (req, res) => {
   console.log(to)
  
   if(!isNaN(limit)){
-    userInfo.findOne({"userid": req.body.userId}, (err, user) => {
+    userInfo.findOne({"userid": userid}, (err, user) => {
       if(err) throw err
       let exerciseLog = user.exercise.filter((value, index) => {
         if(index<limit) return value
@@ -107,22 +107,21 @@ app.get("/api/exercise/log", (req, res) => {
       return res.json(exerciseLog)
     })
   } else if(moment(from) && moment(to)){
-    userInfo.findOne({"userid": req.body.userId}, (err, user) => {
+    userInfo.findOne({"userid": userid}, (err, user) => {
       if(err) throw err
       let dateLog = user.exercise.filter((value) => {
         if(moment(from).isBefore(value.date) &&
            moment(to).isAfter(value.date)
-      }
-      
+        ) return value
+      })
+      return res.json(dateLog)
     })
     
   } else {
-    
-  }
-
-  //} else{
-    //res.send('user not found ')
-  // 
+    userInfo.findOne({"userid": userid}, (err, user) => {
+      return res.json(user)
+    })
+  }  
 }) //end of app.get
 
 // Not found middleware
