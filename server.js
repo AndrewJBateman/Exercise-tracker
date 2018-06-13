@@ -104,13 +104,13 @@ app.get("/api/exercise/log", (req, res) => {
   } else if(moment(from) && moment(to)){
     userInfo.findOne({"userid": userid}, (err, user) => {
       if(err) throw err
-      let dateLog = user.exercise.filter((value) => {
+      let exerciseLog = user.exercise.filter((value) => {
         if(moment(from).isBefore(value.date) &&
            moment(to).isAfter(value.date) 
            && moment(from).isBefore(moment(to))
         ) return value.slice(limit)
       })
-      return res.json(dateLog)
+      return res.json(exerciseLog)
     })
     
   } else {

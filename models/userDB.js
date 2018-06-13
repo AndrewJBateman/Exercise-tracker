@@ -7,7 +7,7 @@ const mongoose = require('mongoose')
 const exerciseSchema = mongoose.Schema({
     description: { type: String, required: true },
     duration_in_minutes: { type: Number, required: true },
-    date: { type: String }
+    date: { type: String, sort: ASC}
 })
 
 //user schema
