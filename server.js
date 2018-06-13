@@ -71,7 +71,6 @@ app.post("/api/exercise/add", (req, res) => {
     console.log(user)
     if(err) throw err
     user.exercise.unshift({ 
-      "exercise": "",
       "description": req.body.description,  
       "duration": req.body.duration,
       "date": req.body.date
