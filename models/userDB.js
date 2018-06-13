@@ -14,8 +14,8 @@ const exerciseSchema = mongoose.Schema({
 const userSchema = mongoose.Schema({
     username: { type: String, required: true },
     userid: { type: String, required: true },
-    exercise: [exerciseSchema],
-    count: { type: Number }
+    exercise: [exerciseSchema]
+    //count: { type: Number }
 },{
     versionKey: false }
 )

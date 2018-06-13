@@ -42,7 +42,7 @@ app.post("/api/exercise/new-user", (req,res) => {
     username: req.body.username, 
     userid: userid,
     exercise: [], 
-    count: 0
+    //count: 0
   })
   console.log('created new user ' +newUser)
     
@@ -80,11 +80,11 @@ app.post("/api/exercise/add", (req, res) => {
       "date": req.body.date
     })
     
-    let newCount = Number(user.count) + Number(req.body.duration);
-    user.Count = newCount;
-    user.save((err, user) => {    
-      if (err) throw err; 
-    });
+    //let newCount = Number(user.count) + Number(req.body.duration);
+    //user.Count = newCount;
+    //user.save((err, user) => {    
+      //if (err) throw err; 
+    //});
     res.json(user);
   }); //end of findOne
 }); //end of app.post
