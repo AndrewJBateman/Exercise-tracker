@@ -72,7 +72,7 @@ app.post("/api/exercise/add", (req, res) => {
     if(err) throw err
     user.exercise.unshift({ 
       "description": req.body.description,  
-      "duration": req.body.duration,
+      "duration_in_minutes": req.body.duration,
       "date": req.body.date? req.body.date : moment().format("YYYY-MM-DD")
     })
     res.json(user);

@@ -6,7 +6,7 @@ const mongoose = require('mongoose')
 //exercise schema
 const exerciseSchema = mongoose.Schema({
     description: { type: String, required: true },
-    duration: { type: Number, required: true },
+    duration_in_minutes: { type: Number, required: true },
     date: { type: String }
 })
 
