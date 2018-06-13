@@ -67,6 +67,11 @@ app.post("/api/exercise/new-user", (req,res) => {
 
 app.post("/api/exercise/add", (req, res) => {
   let user = req.body.userId
+  if(req.date.body = ""){
+    var date = Date.now()
+  } else {
+    var date = req.body.date
+  }
   userInfo.findOne({"userid": user}, (err, user) => {
     console.log(user)
     if(err) throw err
