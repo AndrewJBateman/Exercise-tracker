@@ -108,8 +108,8 @@ app.get("/api/exercise/log", (req, res) => {
   console.log(endDate)
   //if (mongoose.Types.ObjectId.isValid(userid)) {
     //let exerciseDate = userInfo.exercise;
-    const exerc = userInfo.exercise.find({"userid": userid })
-    .where((date.toDate()).gte(startDate).lte(endDate))
+    const exerc = userInfo.find({"userid": userid })
+    .where('date').gte(new Date(from)startDate).lte(endDate)
     .limit(Number(limit))
     .exec(function(err, exercise) {
       if (err) {
