@@ -77,7 +77,7 @@ app.post("/api/exercise/add", (req, res) => {
       "duration_in_minutes": req.body.duration,
       "date": req.body.date? req.body.date : moment().format("YYYY-MM-DD")
     })
-    res.json(user);
+    res.json(user)
   }); //end of findOne
 }); //end of app.post
 
@@ -108,7 +108,7 @@ app.get("/api/exercise/log", (req, res) => {
         if(moment(from).isBefore(value.date) &&
            moment(to).isAfter(value.date) 
            && moment(from).isBefore(moment(to))
-        ) return value.slice(limit)
+        ) return value.slice(limit).sort( { date: 1 } )
       })
       return res.json(exerciseLog)
     })
