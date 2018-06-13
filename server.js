@@ -73,7 +73,7 @@ app.post("/api/exercise/add", (req, res) => {
     user.exercise.unshift({ 
       "description": req.body.description,  
       "duration": req.body.duration,
-      "date": req.body.duration
+      "date": req.body.date? req.body.date : moment().format("YYYY-MM-DD")
     })
     res.json(user);
   }); //end of findOne
@@ -99,12 +99,12 @@ app.get("/api/exercise/log", (req, res) => {
   } else if(moment(from) && moment(to)){
     userInfo.findOne({"userid": userid}, (err, user) => {
       if(err) throw err
-      let dateLog = user.exercise.filter((value) => {
+      let exerciseLog = user.exercise.filter((value) => {
         if(moment(from).isBefore(value.date) &&
            moment(to).isAfter(value.date)
         ) return value
       })
-      return res.json(dateLog)
+      return res.json(exerciseLog)
     })
     
   } else {
