@@ -84,7 +84,8 @@ app.post("/api/exercise/add", (req, res) => {
 
 
 app.get("/api/exercise/log", (req, res) => {
-  const { userid, limit, from, to } = req.query
+  const { userid, from, to } = req.query
+  req.query.limit = ""? let limit = 10 : limit
   console.log(userid)
   console.log(limit)
   console.log(from)
@@ -105,7 +106,7 @@ app.get("/api/exercise/log", (req, res) => {
         if(moment(from).isBefore(value.date) &&
            moment(to).isAfter(value.date) 
            //&& moment(from).isBefore(moment(to))
-        ) return value.slice(limit = undefined? 5 : limit)
+        ) return value.slice(limit)
       })
       return res.json(dateLog)
     })
