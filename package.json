@@ -7,15 +7,15 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.16.3",
-    "mongoose": "^5.1.4",
-    "mongodb": "^3.0.10",
-    "body-parser": "^1.18.3",
-    "cors": "^2.8.4",
-    "shortid": "^2.2.8",
-    "dotenv": "*",
+    "bluebird": "*",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "moment": "*",
-    "bluebird": "*"
+    "mongodb": "^3.6.0",
+    "mongoose": "^5.10.2",
+    "shortid": "^2.2.15"
   },
   "engines": {
     "node": "6.9.1"
