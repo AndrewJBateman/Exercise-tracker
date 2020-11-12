@@ -2,6 +2,7 @@
 
 * Stores user name, id and exercise array as a MongoDB JSON object
 * This was a microservice project for the FreeCodeCamp Front End Certification. User stories are mostly the same for the current FCC project.
+* Note: mLab MongoDB Heroku add-on has been shut down - suggest MongoDB Atlas (free tier) is used instead
 
 **\* Note: to open web links in a new window use: _ctrl+click on link_**
 
