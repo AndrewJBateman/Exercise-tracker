@@ -3,8 +3,12 @@
 * Stores user name, id and exercise array as a MongoDB JSON object
 * This was a microservice project for the FreeCodeCamp Front End Certification. User stories are mostly the same for the current FCC project.
 * Note: mLab MongoDB Heroku add-on has been shut down - suggest MongoDB Atlas (free tier) is used instead
+* **Note:** to open web links in a new window use: _ctrl+click on link_
 
-**\* Note: to open web links in a new window use: _ctrl+click on link_**
+![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/Exercise-tracker?style=plastic)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AndrewJBateman/Exercise-tracker?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/AndrewJBateman/Exercise-tracker?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/AndrewJBateman/Exercise-tracker?style=plastic)
 
 ## :page_facing_up: Table of contents
 
@@ -89,7 +93,10 @@
 
 * [freeCodeCamp's APIs and Microservices Projects - Timestamp Microservice](https://www.freecodecamp.org/learn/apis-and-microservices/apis-and-microservices-projects/exercise-tracker)
 * [FullStackTraining: res.json() vs res.send() vs res.end() in Express](https://blog.fullstacktraining.com/res-json-vs-res-send-vs-res-end-in-express/)
+## :file_folder: License
+
+* This project is licensed under the terms of the MIT license.
 
 ## :envelope: Contact
 
-* Repo created by [ABateman](https://www.andrewbateman.org) - you are welcome to [send me a message](https://andrewbateman.org/contact)
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
